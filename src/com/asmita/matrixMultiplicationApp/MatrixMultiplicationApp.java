@@ -1,6 +1,7 @@
 package com.asmita.matrixMultiplicationApp;
 
-import com.asmita.matrixMultiplication.MatrixMultiplication;
+import com.asmita.matrixMultiplication.MatrixMultiplicationFixedThreads;
+import com.asmita.matrixMultiplication.MatrixMultiplicationSingleThread;
 
 public class MatrixMultiplicationApp {
 
@@ -13,7 +14,7 @@ public class MatrixMultiplicationApp {
 				mat2[i][j] = 1;
 			}
 		}
-		MatrixMultiplication mul = new MatrixMultiplication(mat1, mat2);
+		MatrixMultiplicationFixedThreads mul = new MatrixMultiplicationFixedThreads(mat1, mat2);
 		int [][] result = mul.multiply();
 		System.out.println(toString(mat1));
 		System.out.println(toString(mat2));

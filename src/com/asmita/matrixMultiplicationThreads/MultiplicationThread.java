@@ -1,4 +1,4 @@
-package com.asmita.matrixMultiplication;
+package com.asmita.matrixMultiplicationThreads;
 
 public class MultiplicationThread  extends Thread {
 	private final int [][] mat1;
