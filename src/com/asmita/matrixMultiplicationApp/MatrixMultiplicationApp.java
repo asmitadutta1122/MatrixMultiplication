@@ -6,11 +6,15 @@ import com.asmita.matrixMultiplication.MatrixMultiplicationSingleThread;
 public class MatrixMultiplicationApp {
 
 	public static void main(String[] args) {
-		int [][] mat1 = new int [3][3];
-		int [][] mat2 = new int [3][3];
+		int [][] mat1 = new int [3][4];
+		int [][] mat2 = new int [4][3];
 		for (int i = 0; i < 3; i++) {
-			for (int j = 0; j < 3; j++) {
+			for (int j = 0; j < 4; j++) {
 				mat1[i][j] = 1000;
+			}
+		}
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; j < 3; j++) {
 				mat2[i][j] = 1;
 			}
 		}

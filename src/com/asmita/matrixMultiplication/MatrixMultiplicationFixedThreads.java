@@ -1,6 +1,8 @@
 package com.asmita.matrixMultiplication;
 
-import com.asmita.matrixMultiplicationThreads.MultiplicationThread;
+import java.util.ArrayList;
+
+import com.asmita.matrixMultiplication.concurrency.MultiplicationThread;
 
 public class MatrixMultiplicationFixedThreads implements MatrixMultiplication {
 	private final int [][] mat1;
@@ -22,16 +24,18 @@ public class MatrixMultiplicationFixedThreads implements MatrixMultiplication {
 		if (resultComputed) {
 			return resultMat;
 		}
-		MultiplicationThread t1 = new MultiplicationThread(mat1, mat2, resultMat, 0);
-		MultiplicationThread t2 = new MultiplicationThread(mat1, mat2, resultMat, 1);
-		MultiplicationThread t3 = new MultiplicationThread(mat1, mat2, resultMat, 2);
-		t1.start();
-		t2.start();
-		t3.start();
+		ArrayList<MultiplicationThread> threadList = new ArrayList<>();
+		for (int i = 0; i < mat1.length; i++) {
+			threadList.add(new MultiplicationThread(mat1, mat2, resultMat, i));
+		}
+		
+		for (MultiplicationThread t : threadList) {
+			t.start();
+		}
 		try {
-			t1.join();
-			t2.join();
-			t3.join();
+			for (MultiplicationThread t : threadList) {
+				t.join();
+			}
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
