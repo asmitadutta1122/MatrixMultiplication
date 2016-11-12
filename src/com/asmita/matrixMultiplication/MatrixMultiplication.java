@@ -19,13 +19,21 @@ public class MatrixMultiplication {
 		if (resultComputed) {
 			return resultMat;
 		}
-		for (int i = 0; i < mat1.length; i++) { // aRow
-            for (int j = 0; j < mat2[0].length; j++) { // bColumn
-                for (int k = 0; k < mat1[0].length; k++) { // aColumn
-                    resultMat[i][j] += mat1[i][k] * mat2[k][j];
-                }
-            }
-        }
+		MultiplicationThread t1 = new MultiplicationThread(mat1, mat2, resultMat, 0);
+		MultiplicationThread t2 = new MultiplicationThread(mat1, mat2, resultMat, 1);
+		MultiplicationThread t3 = new MultiplicationThread(mat1, mat2, resultMat, 2);
+		t1.start();
+		t2.start();
+		t3.start();
+		try {
+			t1.join();
+			t2.join();
+			t3.join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 		resultComputed = true;
 		return resultMat;
 	}
