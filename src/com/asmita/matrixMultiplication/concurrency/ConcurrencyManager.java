@@ -15,6 +15,9 @@ public class ConcurrencyManager {
 		this.resultMat = resultMat;
 		this.stateManager = new MultiplicationStateManager(mat1.length);
 		this.threadList = new ArrayList<>();
+		if (numThreads > mat1[0].length) {
+			numThreads = mat1[0].length;
+		}
 		for (int i = 0; i < numThreads; i++) {
 			threadList.add(new MultiplicationWorkerThread(mat1, mat2, resultMat, stateManager));
 		}
