@@ -2,6 +2,7 @@ package com.asmita.matrixMultiplicationApp;
 
 import com.asmita.matrixMultiplication.MatrixMultiplicationFixedThreads;
 import com.asmita.matrixMultiplication.MatrixMultiplicationSingleThread;
+import com.asmita.matrixMultiplication.MatrixMultiplicationVariableThreads;
 
 public class MatrixMultiplicationApp {
 
@@ -18,7 +19,8 @@ public class MatrixMultiplicationApp {
 				mat2[i][j] = 1;
 			}
 		}
-		MatrixMultiplicationFixedThreads mul = new MatrixMultiplicationFixedThreads(mat1, mat2);
+		//MatrixMultiplicationFixedThreads mul = new MatrixMultiplicationFixedThreads(mat1, mat2);
+		MatrixMultiplicationVariableThreads mul = new MatrixMultiplicationVariableThreads(mat1, mat2, 2);
 		int [][] result = mul.multiply();
 		System.out.println(toString(mat1));
 		System.out.println(toString(mat2));
@@ -35,6 +37,5 @@ public class MatrixMultiplicationApp {
         }
         return result;
     }
-
-
+	
 }
