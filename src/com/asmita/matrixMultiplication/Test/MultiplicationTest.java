@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import com.asmita.matrixMultiplication.MatrixMultiplicationVariableThreads;
+import com.asmita.matrixMultiplication.fileHandling.FileHandler;
 
 public class MultiplicationTest {
 
@@ -24,4 +25,25 @@ public class MultiplicationTest {
 		assertArrayEquals(expectedResult, result);
 	}
 
+	@Test
+	public void testReadingInputFiles() {
+		String file1 = "/tmp/test/1.in";
+		String file2 = "/tmp/test/2.in";
+		int [][]mat1 = FileHandler.readInputMatrix(file1);
+		int [][]mat2 = FileHandler.readInputMatrix(file2);
+		MatrixMultiplicationVariableThreads mulVarThread = new MatrixMultiplicationVariableThreads(mat1, mat2, 3);
+		int [][] result = mulVarThread.multiply();
+		System.out.println(toString(result));
+		FileHandler.writeOutputMatrix(result, "/tmp/test/1.out");
+	}
+	public static String toString(int [][] m) {
+        String result = "";
+        for(int i = 0; i < m.length; i++) {
+            for(int j = 0; j < m[i].length; j++) {
+                result += String.format("%10d", m[i][j]);
+            }
+            result += "\n";
+        }
+        return result;
+    }
 }
