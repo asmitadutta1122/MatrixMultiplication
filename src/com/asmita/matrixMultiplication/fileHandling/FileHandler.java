@@ -31,13 +31,13 @@ public class FileHandler {
 					if (thisLine.trim().equals("")) {
 						throw new IllegalArgumentException("Invalid format of input file, blank line encountered " + filename);
 					} else {
-						lineArray = thisLine.split(" ");
+						lineArray = thisLine.trim().split("\\s+");
 						if (lineArray.length != col) {
 							throw new IllegalArgumentException("Invalid format of input file, need more numbers in line " + filename);
 						}
 						int j = 0;
 						for (String number : lineArray) {
-							array[i][j++] = Integer.parseInt(number);
+							array[i][j++] = Integer.parseInt(number.trim());
 						}
 					}
 				} else {
@@ -60,7 +60,9 @@ public class FileHandler {
 	}
 	public static void writeOutputMatrix(int [][] result, String filename) {
 		try {
-			Files.write(Paths.get(filename), toString(result).getBytes());
+			String content = new StringBuilder().append(result.length + " " +result[0].length + "\n")
+					.append(toString(result)).toString();
+			Files.write(Paths.get(filename), content.getBytes());
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}

@@ -26,15 +26,18 @@ public class MultiplicationTest {
 	}
 
 	@Test
-	public void testReadingInputFiles() {
-		String file1 = "/tmp/test/1.in";
-		String file2 = "/tmp/test/2.in";
+	public void testFileHandling() {
+		String file1 = "/tmp/test/1.3.in";
+		String file2 = "/tmp/test/2.3.in";
+		String file3 = "/tmp/test/1.3.out";
 		int [][]mat1 = FileHandler.readInputMatrix(file1);
 		int [][]mat2 = FileHandler.readInputMatrix(file2);
 		MatrixMultiplicationVariableThreads mulVarThread = new MatrixMultiplicationVariableThreads(mat1, mat2, 3);
 		int [][] result = mulVarThread.multiply();
 		System.out.println(toString(result));
-		FileHandler.writeOutputMatrix(result, "/tmp/test/1.out");
+		FileHandler.writeOutputMatrix(result, file3);
+		int [][]result2 = FileHandler.readInputMatrix(file3);
+		assertArrayEquals(result, result2);
 	}
 	public static String toString(int [][] m) {
         String result = "";
