@@ -35,9 +35,6 @@ public class MatrixMultiplicationApp {
 		MatrixMultiplicationVariableThreads mul = new MatrixMultiplicationVariableThreads(mat1, mat2, numThreads);
 		int [][] result = mul.multiply();
 		FileHandler.writeOutputMatrix(result, output);
-		System.out.println("###");
-		System.out.println(FileHandler.toString(mat1));
-		System.out.println(FileHandler.toString(mat2));
-		System.out.println(FileHandler.toString(result));
+		System.out.println("Execution time " + mul.getExecutionTime() + " milliseconds.");
 	}
 }

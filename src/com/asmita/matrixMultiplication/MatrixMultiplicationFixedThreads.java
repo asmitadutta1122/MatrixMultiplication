@@ -9,6 +9,7 @@ public class MatrixMultiplicationFixedThreads implements MatrixMultiplication {
 	private final int [][] mat2;
 	private final int [][] resultMat;
 	private boolean resultComputed;
+	private long executionTime;
 	public MatrixMultiplicationFixedThreads(int[][] mat1, int[][] mat2) {
 		if (mat1[0].length != mat2.length) {
 			throw new IllegalArgumentException("Column size of matrix 1 is not matching Row size of matrix 2");
@@ -21,6 +22,7 @@ public class MatrixMultiplicationFixedThreads implements MatrixMultiplication {
 	
 	@Override
 	public int[][] multiply() {
+		long startTime = System.currentTimeMillis();
 		if (resultComputed) {
 			return resultMat;
 		}
@@ -42,7 +44,17 @@ public class MatrixMultiplicationFixedThreads implements MatrixMultiplication {
 		}
 
 		resultComputed = true;
+		setExecutionTime(System.currentTimeMillis() - startTime);
 		return resultMat;
+	}
+
+	@Override
+	public long getExecutionTime() {
+		return this.executionTime;
+	}
+
+	public void setExecutionTime(long executionTime) {
+		this.executionTime = executionTime;
 	}
 
 }
