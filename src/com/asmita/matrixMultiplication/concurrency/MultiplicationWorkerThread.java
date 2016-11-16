@@ -2,6 +2,12 @@ package com.asmita.matrixMultiplication.concurrency;
 
 import com.asmita.matrixMultiplication.concurrency.ConcurrencyManager.MultiplicationStateManager;
 
+/*
+ * MultiplicationWorkerThread -
+ * A little advanced version of MultiplicationThread where worker threads can use concurrency context
+ * to understand which row has to be processed next.
+ * @author  Asmita Dutta
+ */
 public class MultiplicationWorkerThread extends Thread {
 	private final int [][] mat1;
 	private final int [][] mat2;

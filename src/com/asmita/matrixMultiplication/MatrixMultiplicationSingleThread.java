@@ -1,5 +1,12 @@
 package com.asmita.matrixMultiplication;
 
+/*
+ * MatrixMultiplicationSingleThread -
+ * This implementation of matrix multiplication has just one thread doing all
+ * the calculations.
+ * 
+ * @author  Asmita Dutta
+ */
 public class MatrixMultiplicationSingleThread implements MatrixMultiplication {
 	private final int [][] mat1;
 	private final int [][] mat2;

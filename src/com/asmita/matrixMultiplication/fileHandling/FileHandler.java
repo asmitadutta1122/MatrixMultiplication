@@ -8,6 +8,22 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+/*
+ * FileHandler --
+ * 
+ * This class is used for reading and writing input/output files for matrix multiplication.
+ * The format of the files is as follows where first row contains number of rows and columns
+ * and second row onwards, the matrix.
+ * 
+ * 5 5
+ * 4 5 6 7 8
+ * 1 2 3 4 5
+ * 9 8 7 6 5
+ * 4 3 3 4 3
+ * 1 1 1 1 1
+ * 
+ * @author  Asmita Dutta
+ */
 public class FileHandler {
 	public static int [][] readInputMatrix(String filename) {
 		String thisLine;

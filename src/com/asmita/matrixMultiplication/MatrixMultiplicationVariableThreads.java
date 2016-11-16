@@ -2,6 +2,19 @@ package com.asmita.matrixMultiplication;
 
 import com.asmita.matrixMultiplication.concurrency.ConcurrencyManager;
 
+/*
+ * MatrixMultiplicationVariableThreads -
+ * This implementation of matrix multiplication has option of specifying how many
+ * threads should be created to compute matrix multiplication. The way this implementation
+ * works is by multiplying one row to one column in one iteration. Because of this, having
+ * more threads than the rows in result array would not yield any gains. And hence internally
+ * the number of threads is capped at number of rows in result array. If there is use of 
+ * creating more threads than the number of rows, then other implementation could be written where
+ * each worker thread can work on each cell of the result matrix. In that case the max number of
+ * threads could be row x col of result matrix.
+ * 
+ * @author  Asmita Dutta
+ */
 public class MatrixMultiplicationVariableThreads implements MatrixMultiplication {
 	private boolean resultComputed;
 	private final ConcurrencyManager concurrencyManager;

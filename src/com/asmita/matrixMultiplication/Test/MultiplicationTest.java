@@ -7,6 +7,12 @@ import org.junit.Test;
 import com.asmita.matrixMultiplication.MatrixMultiplicationVariableThreads;
 import com.asmita.matrixMultiplication.fileHandling.FileHandler;
 
+/*
+ * MultiplicationTest - 
+ * Unit tests.
+ * 
+ * @author  Asmita Dutta
+ */
 public class MultiplicationTest {
 
 	@Test
@@ -34,19 +40,9 @@ public class MultiplicationTest {
 		int [][]mat2 = FileHandler.readInputMatrix(file2);
 		MatrixMultiplicationVariableThreads mulVarThread = new MatrixMultiplicationVariableThreads(mat1, mat2, 3);
 		int [][] result = mulVarThread.multiply();
-		System.out.println(toString(result));
+		System.out.println(FileHandler.toString(result));
 		FileHandler.writeOutputMatrix(result, file3);
 		int [][]result2 = FileHandler.readInputMatrix(file3);
 		assertArrayEquals(result, result2);
 	}
-	public static String toString(int [][] m) {
-        String result = "";
-        for(int i = 0; i < m.length; i++) {
-            for(int j = 0; j < m[i].length; j++) {
-                result += String.format("%10d", m[i][j]);
-            }
-            result += "\n";
-        }
-        return result;
-    }
 }

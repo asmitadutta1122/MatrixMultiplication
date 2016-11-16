@@ -4,6 +4,13 @@ import java.util.ArrayList;
 
 import com.asmita.matrixMultiplication.concurrency.MultiplicationThread;
 
+/*
+ * MatrixMultiplicationFixedThreads -
+ * This implementation of matrix multiplication has fixed number of threads. The number
+ * of threads is equal to the number of rows in the result array.
+ * 
+ * @author  Asmita Dutta
+ */
 public class MatrixMultiplicationFixedThreads implements MatrixMultiplication {
 	private final int [][] mat1;
 	private final int [][] mat2;
@@ -39,7 +46,6 @@ public class MatrixMultiplicationFixedThreads implements MatrixMultiplication {
 				t.join();
 			}
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

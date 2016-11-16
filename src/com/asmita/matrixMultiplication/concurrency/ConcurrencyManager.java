@@ -2,6 +2,11 @@ package com.asmita.matrixMultiplication.concurrency;
 
 import java.util.ArrayList;
 
+/*
+ * ConcurrencyManager -
+ * This class is responsible for spawning the worker threads, managing concurrency states etc.
+ * @author  Asmita Dutta
+ */
 public class ConcurrencyManager {
 	
 	public void multiply(int[][] mat1, int[][] mat2, int [][] resultMat, int numThreads) {
@@ -26,6 +31,10 @@ public class ConcurrencyManager {
 		}
 	}
 	
+	/*
+	 * This class can be used by worker threads to get concurrency context. By calling getNextRow
+	 * a worker thread knows which row it has to work on.
+	 */
 	public class MultiplicationStateManager {
 		private int nextRow;
 		private int maxRows;

@@ -1,5 +1,10 @@
 package com.asmita.matrixMultiplication.concurrency;
 
+/*
+ * MultiplicationThread -
+ * A simple thread implementation to do matrix multiplication for a row.
+ * @author  Asmita Dutta
+ */
 public class MultiplicationThread  extends Thread {
 	private final int [][] mat1;
 	private final int [][] mat2;

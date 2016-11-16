@@ -3,6 +3,12 @@ package com.asmita.matrixMultiplicationApp;
 import com.asmita.matrixMultiplication.MatrixMultiplicationVariableThreads;
 import com.asmita.matrixMultiplication.fileHandling.FileHandler;
 
+/*
+ * MatrixMultiplicationApp -
+ * Driver class for Matrix Multiplication.
+ * 
+ * @author  Asmita Dutta
+ */
 public class MatrixMultiplicationApp {
 
 	public static void main(String[] args) {
