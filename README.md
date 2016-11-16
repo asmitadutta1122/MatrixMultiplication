@@ -3,4 +3,4 @@ A matrix multiplication application which uses multiple threads to compute matri
 ### To Build
 mvn install package
 ### To run
-matrix_multiply --input1 <file1> --input2 <file2> --output <outfile> --threads <number of threads>
+matrix_multiply --input1 \<file1> --input2 \<file2> --output \<outfile> --threads \<number of threads>
