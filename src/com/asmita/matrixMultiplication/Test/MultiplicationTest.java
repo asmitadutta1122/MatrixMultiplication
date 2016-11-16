@@ -33,14 +33,14 @@ public class MultiplicationTest {
 
 	@Test
 	public void testFileHandling() {
-		String file1 = "/tmp/test/1.3.in";
-		String file2 = "/tmp/test/2.3.in";
-		String file3 = "/tmp/test/1.3.out";
+		String resourceDir = System.getProperty("user.dir") + "/resources/";
+		String file1 = resourceDir + "1.3.in";
+		String file2 = resourceDir + "2.3.in";
+		String file3 = resourceDir + "1.3.out";
 		int [][]mat1 = FileHandler.readInputMatrix(file1);
 		int [][]mat2 = FileHandler.readInputMatrix(file2);
 		MatrixMultiplicationVariableThreads mulVarThread = new MatrixMultiplicationVariableThreads(mat1, mat2, 3);
 		int [][] result = mulVarThread.multiply();
-		System.out.println(FileHandler.toString(result));
 		FileHandler.writeOutputMatrix(result, file3);
 		int [][]result2 = FileHandler.readInputMatrix(file3);
 		assertArrayEquals(result, result2);
