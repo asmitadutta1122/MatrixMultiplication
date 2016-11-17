@@ -59,7 +59,7 @@ public class MatrixMultiplicationFixedThreads implements MatrixMultiplication {
 		return this.executionTime;
 	}
 
-	public void setExecutionTime(long executionTime) {
+	private void setExecutionTime(long executionTime) {
 		this.executionTime = executionTime;
 	}
 
